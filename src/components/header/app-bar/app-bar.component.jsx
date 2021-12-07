@@ -1,6 +1,9 @@
 import React from 'react';
-import { AppBar, Box, Toolbar, Typography, Button, IconButton } from '@mui/material';
+import { AppBar, Box, Toolbar, Typography, IconButton } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
+import './app-bar.component.scss';
+
+import AccountModalComponent from '../account-modal/account.modal.component';
 
 const AppBarComponent = () => {
   return (
@@ -16,10 +19,10 @@ const AppBarComponent = () => {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            Smart Home
+          <Typography color="warning" variant="h6" component="div" sx={{ flexGrow: 1 }}>
+            <span id="app-name">Smart Home</span>
           </Typography>
-          <Button color="inherit">Login</Button>
+          <AccountModalComponent />
         </Toolbar>
       </AppBar>
     </Box>
