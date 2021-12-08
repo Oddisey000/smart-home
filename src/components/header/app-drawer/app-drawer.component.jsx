@@ -4,12 +4,12 @@ import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
 import MenuIcon from '@mui/icons-material/Menu';
 
+import UserList from './user-list/user-list.component';
+import HouseList from './house-list/house-list.component';
+
 const LeftSideDrawer = () => {
   const [state, setState] = React.useState({
-    top: false,
-    left: false,
-    bottom: false,
-    right: false,
+    left: false
   });
 
   const toggleDrawer = (anchor, open) => (event) => {
@@ -22,10 +22,8 @@ const LeftSideDrawer = () => {
 
   const list = (anchor) => (
     <Box
-      sx={{ width: anchor === 'top' || anchor === 'bottom' ? 'auto' : "100vw" }}
+      sx={{ width: "100vw" }}
       role="presentation"
-      onClick={toggleDrawer(anchor, false)}
-      onKeyDown={toggleDrawer(anchor, false)}
     >
       <List>
         {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
@@ -39,14 +37,12 @@ const LeftSideDrawer = () => {
       </List>
       <Divider />
       <List>
-        {['All mail', 'Trash', 'Spam'].map((text, index) => (
-          <ListItem button key={text}>
-            <ListItemIcon>
-              {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-            </ListItemIcon>
-            <ListItemText primary={text} />
-          </ListItem>
-        ))}
+        <ListItem>
+          <div style={{width: "100vw"}}>
+            <UserList />
+            <HouseList />
+          </div>
+        </ListItem>
       </List>
     </Box>
   );
