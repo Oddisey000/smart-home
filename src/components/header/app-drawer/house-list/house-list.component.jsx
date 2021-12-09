@@ -10,8 +10,8 @@ const HouseList = () => {
       <Accordion style={{backgroundColor: "darkslategrey"}}>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel2a-content"
-          id="panel2a-header"
+          aria-controls="house_list-content"
+          id="house_list-header"
         >
           <Typography>Перелік будинків</Typography>
         </AccordionSummary>

@@ -10,8 +10,8 @@ const UserList = () => {
       <Accordion style={{backgroundColor: "inherit"}}>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel1a-content"
-          id="panel1a-header"
+          aria-controls="user_list-content"
+          className="user_list-header"
         >
           <Typography>Реєстр користувачів</Typography>
         </AccordionSummary>

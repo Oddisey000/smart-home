@@ -3,6 +3,7 @@ import { Box, Drawer, List, Divider, ListItem, ListItemIcon, ListItemText, IconB
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
 import MenuIcon from '@mui/icons-material/Menu';
+import ClickAwayListener from '@mui/base/ClickAwayListener';
 
 import UserList from './user-list/user-list.component';
 import HouseList from './house-list/house-list.component';
@@ -21,56 +22,58 @@ const LeftSideDrawer = () => {
   };
 
   const list = (anchor) => (
-    <Box
-      sx={{ width: "100vw" }}
-      role="presentation"
-    >
-      <List>
-        {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-          <ListItem button key={text}>
-            <ListItemIcon>
-              {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-            </ListItemIcon>
-            <ListItemText primary={text} />
+    <ClickAwayListener onClickAway={toggleDrawer('left', false)}>
+      <Box
+        sx={{ width: "100vw" }}
+        role="presentation"
+      >
+        <List>
+          {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
+            <ListItem button key={text}>
+              <ListItemIcon>
+                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+              </ListItemIcon>
+              <ListItemText primary={text} />
+            </ListItem>
+          ))}
+        </List>
+        <Divider />
+        <List>
+          <ListItem>
+            <div style={{width: "100vw"}}>
+              <UserList />
+              <HouseList />
+            </div>
           </ListItem>
-        ))}
-      </List>
-      <Divider />
-      <List>
-        <ListItem>
-          <div style={{width: "100vw"}}>
-            <UserList />
-            <HouseList />
-          </div>
-        </ListItem>
-      </List>
-    </Box>
+        </List>
+      </Box>
+    </ClickAwayListener>
   );
 
   return (
-    <div>
-      {['left'].map((anchor) => (
-        <React.Fragment key={anchor}>
-          <IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="menu"
-            sx={{ mr: 2 }}
-            onClick={toggleDrawer(anchor, true)}
-          >
-            <MenuIcon />
-          </IconButton>
-          <Drawer
-            anchor={anchor}
-            open={state[anchor]}
-            onClose={toggleDrawer(anchor, false)}
-          >
-            {list(anchor)}
-          </Drawer>
-        </React.Fragment>
-      ))}
-    </div>
+      <div>
+        {['left'].map((anchor) => (
+          <React.Fragment key={anchor}>
+            <IconButton
+              size="large"
+              edge="start"
+              color="inherit"
+              aria-label="menu"
+              sx={{ mr: 2 }}
+              onClick={toggleDrawer(anchor, true)}
+            >
+              <MenuIcon />
+            </IconButton>
+            <Drawer
+              anchor={anchor}
+              open={state[anchor]}
+              onClose={toggleDrawer(anchor, false)}
+            >
+              {list(anchor)}
+            </Drawer>
+          </React.Fragment>
+        ))}
+      </div>
   );
 }
 
