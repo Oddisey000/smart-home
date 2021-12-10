@@ -5,6 +5,7 @@ import AccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import ClickAwayListener from '@mui/base/ClickAwayListener';
+import ArrowRightIcon from '@mui/icons-material/ArrowRight';
 
 import AppFloorComponent from './house-floor/house-floor.component';
 
@@ -26,6 +27,7 @@ const AppHouseComponent = () => {
           expandIcon={<ExpandMoreIcon />}
           aria-controls="house-content"
         >
+          <ArrowRightIcon />
           <Typography>Мій будинок #1</Typography>
         </AccordionSummary>
         <AccordionDetails style={{padding: 0}}>

@@ -5,6 +5,7 @@ import AccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import ClickAwayListener from '@mui/base/ClickAwayListener';
+import ArrowRightIcon from '@mui/icons-material/ArrowRight';
 
 import AppRoomComponent from './house-room/house-room.component';
 
@@ -26,7 +27,8 @@ const AppFloorComponent = () => {
           expandIcon={<ExpandMoreIcon />}
           aria-controls="floor-content"
         >
-          <Typography>Поверх #1</Typography>
+          <ArrowRightIcon />
+          <Typography> Поверх #1</Typography>
         </AccordionSummary>
         <AccordionDetails style={{padding: 0}}>
           <AppRoomComponent />
