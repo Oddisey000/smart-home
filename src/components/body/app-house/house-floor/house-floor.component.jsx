@@ -6,7 +6,7 @@ import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import ClickAwayListener from '@mui/base/ClickAwayListener';
 
-import AppRoomComponent from './house-chamber/house-room.component';
+import AppRoomComponent from './house-room/house-room.component';
 
 const AppFloorComponent = () => {
   const [expanded, setExpanded] = React.useState();

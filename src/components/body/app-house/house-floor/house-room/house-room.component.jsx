@@ -6,6 +6,8 @@ import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import ClickAwayListener from '@mui/base/ClickAwayListener';
 
+import DeviceListComponent from './device-list/device-list.component';
+
 const AppRoomComponent = () => {
   const [expanded, setExpanded] = React.useState();
   const handleChange = (panel) => (event, newExpanded) => {
@@ -26,10 +28,8 @@ const AppRoomComponent = () => {
         >
           <Typography>Кімната #1</Typography>
         </AccordionSummary>
-        <AccordionDetails>
-          <Typography>
-            Тут знаходитимуться елементи управління
-          </Typography>
+        <AccordionDetails style={{padding: 0}}>
+          <DeviceListComponent />
         </AccordionDetails>
       </Accordion>
     </ClickAwayListener>
